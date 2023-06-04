@@ -7,7 +7,6 @@
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "prepare": "husky install",
-    "cm": "npx lint-staged && git commit",
     "lint": "npx prettier ./src --write && npx eslint ./src --fix --quiet"
   },
   "keywords": [
