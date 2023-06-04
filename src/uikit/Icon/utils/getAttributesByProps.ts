@@ -4,7 +4,7 @@ import { IconProps } from '../interfaces';
 import styles from '../icon.module.scss';
 
 export const getAttributesByProps = (props: IconProps) => {
-  const { size = 'm', className, ...rest } = props;
+  const { size = 'xl', className, ...rest } = props;
 
   return {
     ...rest,

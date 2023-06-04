@@ -14,11 +14,15 @@ const INVERTOR: Record<ColorMode, ColorMode> = {
 
 export const useColorMode = create<ColorModeStore>((set) => ({
   colorMode: 'dark',
-  setColorMode: (colorMode) => {
-    if (!!colorMode) {
-      set(() => ({ colorMode }));
-    } else {
-      set((state) => ({ colorMode: INVERTOR[state.colorMode] }));
-    }
+
+  setColorMode: (cMode) => {
+    set((state) => {
+      const colorMode = !!cMode ? cMode : INVERTOR[state.colorMode];
+
+      const html = document.querySelector('html');
+      if (!!html) html.dataset['theme'] = colorMode;
+
+      return { colorMode };
+    });
   },
 }));

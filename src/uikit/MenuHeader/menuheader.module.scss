@@ -1,4 +1,7 @@
 .menuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   min-height: 96px;
   padding: var(--menu-element-pd);

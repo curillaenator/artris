@@ -102,12 +102,38 @@ textarea {
 }
 
 button {
-  font-family: 'Montserrat', sans-serif;
+  --button-bgc: var(--color-emphasis-200);
+  --button-c: var(--color-emphasis-700);
+
+  cursor: pointer;
   outline: none;
-  background-color: none;
+  width: fit-content;
+  padding: 8px;
+
+  border-radius: 6px;
   border: none;
-  color: var(--color-emphasis-700);
+  background-color: var(--button-bgc);
+
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--fz-16);
   line-height: var(--lh-16);
   font-weight: 400;
+  color: var(--button-c);
+
+  &:not(:disabled) {
+    &:hover {
+      --button-bgc: var(--color-violet-700);
+      --button-c: var(--color-neutral-100);
+    }
+
+    &:active {
+      --button-bgc: var(--color-violet-500);
+      --button-c: var(--color-neutral-100);
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    color: var(--color-emphasis-400);
+  }
 }

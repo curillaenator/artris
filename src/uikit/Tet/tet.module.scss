@@ -1,0 +1,22 @@
+.tet {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transition: 5s linear;
+
+  transform: translate(0);
+
+  &_fall {
+    transform: translateY(50vh);
+  }
+
+  .row {
+    display: flex;
+  }
+
+  .bar {
+    &_rigid {
+      background-color: var(--color-blue-700);
+    }
+  }
+}

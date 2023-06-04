@@ -1,13 +1,22 @@
 import React from 'react';
 
-import CameraIcon from '@src/uikit/Icon/icons/CameraIcon';
+import MoonIcon from '@src/uikit/Icon/icons/MoonIcon';
+import SunIcon from '@src/uikit/Icon/icons/SunIcon';
+
+import { useColorMode } from '@src/store';
 
 import styles from './menuheader.module.scss';
 
 export const MenuHeader = () => {
+  const { colorMode, setColorMode } = useColorMode();
+
   return (
     <header className={styles.menuHeader}>
-      <CameraIcon />
+      <h2>Artris</h2>
+
+      <button type='button' onClick={() => setColorMode()}>
+        {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
+      </button>
     </header>
   );
 };
