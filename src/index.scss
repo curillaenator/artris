@@ -1,15 +1,17 @@
-@import './cssv/colors';
+@import './cssv/colors', './cssv/fontSettings';
 
 :root {
   @include colors;
 
-  --color-emphasis-100: var(--color-neutral-100);
-  --color-emphasis-200: var(--color-neutral-200);
-  --color-emphasis-300: var(--color-neutral-300);
-  --color-emphasis-400: var(--color-neutral-400);
-  --color-emphasis-500: var(--color-neutral-500);
-  --color-emphasis-600: var(--color-neutral-600);
-  --color-emphasis-700: var(--color-neutral-700);
+  &[data-theme='light'] {
+    --color-emphasis-100: var(--color-neutral-100);
+    --color-emphasis-200: var(--color-neutral-200);
+    --color-emphasis-300: var(--color-neutral-300);
+    --color-emphasis-400: var(--color-neutral-400);
+    --color-emphasis-500: var(--color-neutral-500);
+    --color-emphasis-600: var(--color-neutral-600);
+    --color-emphasis-700: var(--color-neutral-700);
+  }
 
   &[data-theme='dark'] {
     --color-emphasis-100: var(--color-neutral-700);
@@ -20,6 +22,9 @@
     --color-emphasis-600: var(--color-neutral-200);
     --color-emphasis-700: var(--color-neutral-100);
   }
+
+  @include fontSizes;
+  @include lineHeights;
 }
 
 *,
@@ -31,6 +36,78 @@
 }
 
 html {
+  font-family: 'Montserrat', sans-serif;
   background-color: var(--color-emphasis-100);
   color: var(--color-emphasis-700);
+}
+
+h1 {
+  font-size: var(--fz-48);
+  line-height: var(--lh-48);
+  font-weight: 300;
+}
+
+h2 {
+  font-size: var(--fz-32);
+  line-height: var(--lh-32);
+  font-weight: 300;
+}
+
+h3 {
+  font-size: var(--fz-24);
+  line-height: var(--lh-24);
+  font-weight: 300;
+}
+
+h4 {
+  font-size: var(--fz-20);
+  line-height: var(--lh-20);
+  font-weight: 300;
+}
+
+p {
+  font-size: var(--fz-16);
+  line-height: var(--lh-16);
+  font-weight: 300;
+}
+
+b {
+  font-size: var(--fz-16);
+  line-height: var(--lh-16);
+  font-weight: 600;
+}
+
+span {
+  font-size: var(--fz-16);
+  line-height: var(--lh-16);
+  font-weight: 300;
+}
+
+input,
+textarea {
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+  font-size: var(--fz-16);
+  line-height: var(--lh-16);
+  color: var(--color-emphasis-700);
+  width: 100%;
+  font-weight: 400;
+
+  &::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-size: var(--fz-16);
+    line-height: var(--lh-16);
+    color: var(--color-emphasis-700);
+  }
+}
+
+button {
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+  background-color: none;
+  border: none;
+  color: var(--color-emphasis-700);
+  font-size: var(--fz-16);
+  line-height: var(--lh-16);
+  font-weight: 400;
 }

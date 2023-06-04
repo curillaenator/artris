@@ -1,0 +1,9 @@
+.menu {
+  --menu-element-pd: 24px;
+
+  width: 384px;
+  flex-shrink: 0;
+  height: 100%;
+  border-left: 2px solid var(--color-emphasis-200);
+  border-right: 2px solid var(--color-emphasis-200);
+}

@@ -1,0 +1,19 @@
+@mixin fontSizes {
+  --fz-8: 8px;
+  --fz-12: 12px;
+  --fz-16: 16px;
+  --fz-20: 20px;
+  --fz-24: 24px;
+  --fz-32: 32px;
+  --fz-48: 48px;
+}
+
+@mixin lineHeights {
+  --lh-8: 10px;
+  --lh-12: 14px;
+  --lh-16: 20px;
+  --lh-20: 24px;
+  --lh-24: 28px;
+  --lh-32: 38px;
+  --lh-48: 58px;
+}
