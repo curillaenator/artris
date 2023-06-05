@@ -1,2 +1,2 @@
 export { useColorMode } from './useColorMode';
-export { useCurrentTet } from './useCurrentTet';
+export { useGameStore } from './useGameStore';

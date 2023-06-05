@@ -1,21 +1,22 @@
 import React from 'react';
 
 import { GameRow } from '@src/uikit/GameGrid';
-import { Tet } from '@src/uikit/Tet';
+
+import { useFieldGenerator } from './hooks/useFieldGenerator';
+import { useRender } from './hooks/useRender';
 
 import styles from './game.module.scss';
 
-const ROWS = [...new Array(30)].map((_, i) => ({ rowIndex: i })); // туду: генерировать нужное к0во строк
-
 export const Game = () => {
-  return (
-    <div className={styles.game}>
-      <div className={styles.display}>
-        <Tet />
+  const { gameRef } = useFieldGenerator();
+  const { field } = useRender();
 
-        {ROWS.map((row) => (
-          <GameRow key={row.rowIndex} {...row} />
-        ))}
+  // console.log(field);
+
+  return (
+    <div ref={gameRef} className={styles.game}>
+      <div className={styles.display}>
+        {field.length && field.map((row) => <GameRow key={`${row[0].x}-${row[0].y}`} row={row} />)}
       </div>
 
       <div className={styles.floor} />

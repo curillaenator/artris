@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { FC, HTMLAttributes } from 'react';
+import cn from 'classnames';
 
-import { useCurrentTet } from '@src/store';
+import { useGameStore } from '@src/store';
 
+import type { Cell } from '@src/types';
 import styles from './gamecell.module.scss';
 
-export const GameCell = () => {
-  const setSize = useCurrentTet((state) => state.setSize);
+interface GameCellProps extends Cell, Omit<HTMLAttributes<HTMLDivElement>, 'color'> {}
 
-  return <div className={styles.cell} ref={setSize}></div>;
+export const GameCell: FC<GameCellProps> = (props) => {
+  const { id, color, ...rest } = props;
+
+  // console.log(color);
+
+  const setSize = useGameStore((state) => state.setSize);
+
+  return (
+    <div {...rest} id={id} className={cn(styles.cell, styles[`cell-${color}`])} ref={setSize}>
+      <div className={styles.indicator} />
+    </div>
+  );
 };

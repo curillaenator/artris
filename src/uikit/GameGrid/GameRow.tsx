@@ -2,23 +2,20 @@ import React, { FC } from 'react';
 
 import { GameCell } from './GameCell';
 
+import type { Cell } from '@src/types';
 import styles from './gamerow.module.scss';
 
 interface GameRowProps {
-  rowIndex?: number;
+  row: Cell[];
 }
 
-const getCels = (y: number) => {
-  return [...new Array(12)].map((_, i) => ({ x: i, y }));
-};
-
 export const GameRow: FC<GameRowProps> = (props) => {
-  const { rowIndex = 0 } = props;
+  const { row } = props;
 
   return (
     <div className={styles.row}>
-      {getCels(rowIndex).map(({ x, y }) => (
-        <GameCell key={`x${x}_y${y}`} />
+      {row.map(({ x, y, color }) => (
+        <GameCell key={`x${x}_y${y}`} id={`${x}-${y}`} data-x={x} data-y={y} x={x} y={y} color={color} />
       ))}
     </div>
   );

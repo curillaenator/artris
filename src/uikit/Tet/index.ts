@@ -1,1 +1,0 @@
-export { Tet } from './Tet';

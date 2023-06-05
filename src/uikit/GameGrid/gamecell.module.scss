@@ -1,6 +1,32 @@
+$colors: (
+  'blue': '700',
+  'violet': '700',
+  'green': '700',
+  'red': '700',
+  'orange': '700',
+  'emphasis': '200',
+);
+
 .cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   aspect-ratio: 1 / 1;
 
-  box-shadow: inset 0 0 0 2px var(--color-emphasis-200);
+  padding: 6px;
+
+  @each $colorName, $colorValue in $colors {
+    &-#{'' + $colorName} {
+      --cell-indicator-c: var(--color-#{$colorName}-#{$colorValue});
+    }
+  }
+
+  .indicator {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background-color: var(--cell-indicator-c);
+  }
 }
